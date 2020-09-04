@@ -593,7 +593,7 @@ srs_error_t SrsLiveStream::do_serve_http(ISrsHttpResponseWriter* w, ISrsHttpMess
     if (!r->query_get("startPts").empty()) {
         lasspts = atoi(r->query_get("startPts").c_str());
     }
-    if (r->query_get("onlyAudio") == "true") {
+    if (r->query_get("audioOnly") == "true") {
         only_audio = true;
     }
     if ((err = source->create_consumer(NULL, consumer, lasspts, only_audio)) != srs_success) {
